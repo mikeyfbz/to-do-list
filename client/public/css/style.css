@@ -1,0 +1,24 @@
+
+
+#to_do_list, #completed{
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 2px solid black;
+}
+
+#tile1{
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+#list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+button{
+    width: 100px;
+    height: 30px;
+}
