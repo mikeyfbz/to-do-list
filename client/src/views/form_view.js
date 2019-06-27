@@ -9,6 +9,7 @@ FormView.prototype.bindEvents = function(){
         event.preventDefault();
         const details = event.target;
         PubSub.publish('FormView:entered-details', details);
+        event.target.reset();
     })
 }
 

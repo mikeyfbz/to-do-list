@@ -20,5 +20,4 @@ GridView.prototype.populate = function(formDetails){
     })
 }
 
-
-module.exports = GridView;
+module.exports = GridView;  

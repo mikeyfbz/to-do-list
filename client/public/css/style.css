@@ -6,12 +6,6 @@
     border: 2px solid black;
 }
 
-#tile1{
-    border: 2px solid black;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-}
 
 #list{
     display: grid;
@@ -33,4 +27,15 @@ button{
 .desc {
     grid-column-start: 2; 
     grid-column-end: 4; 
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: stretch;
+}
+
+#completedButton {
+    grid-column: 1 / span 2;
 }

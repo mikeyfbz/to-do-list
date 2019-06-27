@@ -1,4 +1,5 @@
-
+const GridView = require('./grid_view.js');
+const PubSub = require('../helpers/pub_sub.js');
 
 const TileView = function(element){
     this.element = element;
@@ -8,6 +9,7 @@ TileView.prototype.render = function(tile, index){
     console.log(tile)
     const newTile = document.createElement('div');
     newTile.classList.add('tile');
+    newTile.id = `tile${tile._id}`;
 
     const titleLable = document.createElement('label');
     titleLable.textContent = "Title: ";
@@ -31,13 +33,41 @@ TileView.prototype.render = function(tile, index){
     newTile.appendChild(descLabel);
     newTile.appendChild(desc);
 
+    const buttons = document.createElement('div');
+    buttons.classList.add('buttons');
+    newTile.appendChild(buttons);
+
     const completedButton = document.createElement('button');
     completedButton.textContent = "Completed";
-    completedButton.id = 'completedButton';
-    newTile.appendChild(completedButton);
+    completedButton.id = `completedButton${index}`;
+    completedButton.value = tile._id;
+    buttons.appendChild(completedButton);
 
+    // const updateButton = document.createElement('button');
+    // updateButton.textContent = "Update";
+    // updateButton.id = `updateButton${index}`;
+    // updateButton.value = tile._id;
+    // buttons.appendChild(updateButton);
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = "Delete";
+    deleteButton.id = `deleteButton${index}`;
+    deleteButton.value = tile._id;
+    buttons.appendChild(deleteButton);
 
     this.element.appendChild(newTile);
+
+
+    deleteButton.addEventListener('click', (event)=> {
+        const click = event.target.value;
+        PubSub.publish('TileView:delete-tile', click)
+    })
+    
+    completedButton.addEventListener('click', (event)=>{
+        const click = event;
+        PubSub.publish('TileView:tile-complete', click);
+    })
+
 }
 
 
