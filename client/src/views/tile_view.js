@@ -31,6 +31,11 @@ TileView.prototype.render = function(tile, index){
     newTile.appendChild(descLabel);
     newTile.appendChild(desc);
 
+    const completedButton = document.createElement('button');
+    completedButton.textContent = "Completed";
+    completedButton.id = 'completedButton';
+    newTile.appendChild(completedButton);
+
 
     this.element.appendChild(newTile);
 }
