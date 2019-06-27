@@ -6,17 +6,18 @@ const GridView = function(element){
 }
 
 GridView.prototype.bindEvents = function(){
-    PubSub.subscribe('ToDo:prepared-details', (event) => {
+    PubSub.subscribe('ToDo:allData', (event) => {
         const formDetails = event.detail;
         this.populate(formDetails);
     })
 }
 
 GridView.prototype.populate = function(formDetails){
-    for(tile of formDetails){
-    const newTile = new TileView(tile);
-    this.element.appencChild(newTile);
-    }
+    this.element.innerHTML = '';
+    formDetails.forEach((tile, index) => {
+        const popTile = new TileView(this.element);
+        popTile.render(tile, index)
+    })
 }
 
 

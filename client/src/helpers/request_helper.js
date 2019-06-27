@@ -8,11 +8,11 @@ const RequestHelper = function (url) {
       .catch(console.error)
   };
   
-  RequestHelper.prototype.post = function(payload, headers) {
+  RequestHelper.prototype.post = function(payload) {
     return fetch(this.url, {
       method: 'POST',
       body: JSON.stringify(payload),
-      headers: headers
+      headers: {'Content-Type': 'application/json'}
     })
     .then(response => response.json())
     .catch(console.error)

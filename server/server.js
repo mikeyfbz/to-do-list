@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 MongoClient.connect('mongodb://localhost:27017')
     .then((client) => {
-        const db = client.db('todoList');
+        const db = client.db('toDoList');
         const toDoCollection = db.collection('toDo');
         const toDoRouter = createRouter(toDoCollection);
         app.use('/api/toDo', toDoRouter);
