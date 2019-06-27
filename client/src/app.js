@@ -4,9 +4,9 @@ const GridView = require('./views/grid_view.js');
 
 document.addEventListener('DOMContentLoaded', function(){
 
-    
+    const completedList = document.querySelector('#completed')
     const toDoList = document.querySelector('#to_do_list');
-    const gridView = new GridView(toDoList);
+    const gridView = new GridView(toDoList, completedList);
     gridView.bindEvents();
     
     const form = document.querySelector('#new_task_form');

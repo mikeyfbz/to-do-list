@@ -1,8 +1,9 @@
 const PubSub = require('../helpers/pub_sub.js');
 const TileView = require('./tile_view.js');
 
-const GridView = function(element){
+const GridView = function(element, completedElement){
     this.element = element;
+    this.completedElement = completedElement;
 }
 
 GridView.prototype.bindEvents = function(){
@@ -14,8 +15,9 @@ GridView.prototype.bindEvents = function(){
 
 GridView.prototype.populate = function(formDetails){
     this.element.innerHTML = '';
+    this.completedElement.innerHTML = '';
     formDetails.forEach((tile, index) => {
-        const popTile = new TileView(this.element);
+        const popTile = new TileView(this.element, this.completedElement);
         popTile.render(tile, index)
     })
 }

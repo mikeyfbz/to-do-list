@@ -10,6 +10,7 @@
 #list{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    width: 80%;
 }
 
 button{
@@ -22,6 +23,7 @@ button{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    height: 150px;
 }
 
 .desc {
