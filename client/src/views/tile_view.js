@@ -41,19 +41,13 @@ TileView.prototype.populateTile = function(tile, index, element){
         buttons.classList.add('buttons');
         newTile.appendChild(buttons);
 
-        const completedButton = document.createElement('button');
-        completedButton.textContent = "Completed";
-        completedButton.id = `completedButton${index}`;
-        completedButton.value = tile._id;
+        const completedButton = this.createButton("Completed", `completedButton${index}`, tile._id);
         if(tile.completed == true){
             completedButton.classList.add('hide');
         }
         buttons.appendChild(completedButton);
 
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = "Delete";
-        deleteButton.id = `deleteButton${index}`;
-        deleteButton.value = tile._id;
+        const deleteButton = this.createButton("Delete", `deleteButton${index}`, tile._id)
         buttons.appendChild(deleteButton);
 
         element.appendChild(newTile);
@@ -79,6 +73,14 @@ TileView.prototype.createContent = function(content){
     const item = document.createElement('h3');
     item.textContent = content;
     return item;
+}
+
+TileView.prototype.createButton = function(content, id, value){
+    const button = document.createElement('button');
+    button.textContent = content;
+    button.id = id;
+    button.value = value;
+    return button;
 }
 
 module.exports = TileView;
