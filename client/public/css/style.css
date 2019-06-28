@@ -16,7 +16,6 @@ h1{
     border: 2px solid black;
 }
 
-
 #list{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -39,6 +38,7 @@ button{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     height: 150px;
+    text-transform: capitalize;
 }
 
 .desc {
