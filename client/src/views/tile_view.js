@@ -90,9 +90,9 @@ TileView.prototype.addImportance = function(tile){
     let level = '';
     if (tile.completed == true){
         level = 'done'
-    }else if (tile.importance == 'High'){
+    }else if (tile.importance == '3'){
         level = 'high';
-    } else if (tile.importance == 'Medium'){
+    } else if (tile.importance == '2'){
         level = 'medium'
     } else {
         level = 'low'

@@ -33,6 +33,9 @@ ToDo.prototype.prepData = function(details){
     }];
     this.request.post(object)
         .then((allData) => {
+            allData.sort(function(object1, object2){
+                return object2.importance - object1.importance
+            })
             PubSub.publish('ToDo:allData', allData)
         })
 }
@@ -40,6 +43,9 @@ ToDo.prototype.prepData = function(details){
 ToDo.prototype.getData = function(){
     this.request.get()
         .then((allData) => {
+            allData.sort(function(object1, object2){
+                return object2.importance - object1.importance
+            })
             this.tiles = allData;
             PubSub.publish('ToDo:allData', allData);
         })
@@ -48,6 +54,9 @@ ToDo.prototype.getData = function(){
 ToDo.prototype.deleteTile = function(id){
     this.request.delete(id)
         .then((allData)=> {
+            allData.sort(function(object1, object2){
+                return object2.importance - object1.importance
+            })
             PubSub.publish('ToDo:allData', allData);
         })
 }
