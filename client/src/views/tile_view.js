@@ -20,6 +20,8 @@ TileView.prototype.populateTile = function(tile, index, element){
     const newTile = document.createElement('div');
         newTile.classList.add('tile');
         newTile.id = `tile${tile._id}`;
+        classColour = this.addImportance(tile);
+        newTile.classList.add(classColour);
 
         const titleLable = this.createLabel("Title: ")
         const title = this.createContent(tile.title);
@@ -81,6 +83,21 @@ TileView.prototype.createButton = function(content, id, value){
     button.id = id;
     button.value = value;
     return button;
+}
+
+TileView.prototype.addImportance = function(tile){
+    console.log(tile.importance)
+    let level = '';
+    if (tile.completed == true){
+        level = 'done'
+    }else if (tile.importance == 'High'){
+        level = 'high';
+    } else if (tile.importance == 'Medium'){
+        level = 'medium'
+    } else {
+        level = 'low'
+    }
+    return level;
 }
 
 module.exports = TileView;

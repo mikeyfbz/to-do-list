@@ -56,3 +56,19 @@ button{
 #completedButton {
     grid-column: 1 / span 2;
 }
+
+.high{
+    background-color: red;
+}
+
+.medium{
+    background-color: yellow;
+}
+
+.low{
+    background-color: blue;
+}
+
+.done{
+    background-color: green;
+}

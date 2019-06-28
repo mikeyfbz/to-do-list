@@ -28,7 +28,8 @@ ToDo.prototype.prepData = function(details){
         title: details.title.value,
         desc: details.desc.value,
         due_date: details.due_date.value,
-        completed: false
+        completed: false,
+        importance: details.importance.value
     }];
     this.request.post(object)
         .then((allData) => {
@@ -63,7 +64,8 @@ ToDo.prototype.tileCompleted = function(id){
         title: completedTile.title,
         desc: completedTile.desc,
         due_date: completedTile.due_date,
-        completed: true
+        completed: true,
+        importance: completedTile.importance
     };
     this.request.put(id, object)
         .then((allData) => {
