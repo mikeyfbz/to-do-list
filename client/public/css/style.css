@@ -1,4 +1,14 @@
+* {
+    text-align: center;
+}
 
+h1{
+    width: 80%;
+}
+
+#new_task{
+    width: 80%;
+}
 
 #to_do_list, #completed{
     display: grid;
@@ -11,11 +21,16 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 80%;
+    grid-template-rows: 60px auto;
 }
 
 button{
     width: 100px;
     height: 30px;
+}
+
+.hide{
+    display: none;
 }
 
 .tile {
@@ -35,7 +50,7 @@ button{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    align-items: stretch;
+    height: 75px;
 }
 
 #completedButton {
