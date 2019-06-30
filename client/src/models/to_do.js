@@ -9,8 +9,8 @@ const ToDo = function(url){
 
 ToDo.prototype.bindEvents = function(){
     PubSub.subscribe('FormView:entered-details', (event) => {
-        const details = event.detail;
-        this.prepData(details)
+        const newDetails = event.detail;
+        this.prepData(newDetails)
         
     })
     PubSub.subscribe('TileView:delete-tile', (event)=>{
@@ -23,15 +23,15 @@ ToDo.prototype.bindEvents = function(){
     })
 }
 
-ToDo.prototype.prepData = function(details){
-    const object = [{
-        title: details.title.value,
-        desc: details.desc.value,
-        due_date: details.due_date.value,
+ToDo.prototype.prepData = function(newDetails){
+    const newDbObject = [{
+        title: newDetails.title.value.toLowerCase(),
+        desc: newDetails.desc.value.toLowerCase(),
+        due_date: newDetails.due_date.value,
         completed: false,
-        importance: details.importance.value
+        importance: newDetails.importance.value
     }];
-    this.request.post(object)
+    this.request.post(newDbObject)
         .then((allData) => {
             allData.sort(function(object1, object2){
                 return object2.importance - object1.importance
@@ -69,14 +69,14 @@ ToDo.prototype.tileCompleted = function(id){
         }   
     })
     console.log(completedTile);
-    const object = {
+    const newDbObject = {
         title: completedTile.title,
         desc: completedTile.desc,
         due_date: completedTile.due_date,
         completed: true,
         importance: completedTile.importance
     };
-    this.request.put(id, object)
+    this.request.put(id, newDbObject)
         .then((allData) => {
             PubSub.publish('ToDo:allData', allData)
         })

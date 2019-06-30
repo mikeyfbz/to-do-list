@@ -1,4 +1,3 @@
-const GridView = require('./grid_view.js');
 const PubSub = require('../helpers/pub_sub.js');
 
 const TileView = function(element, completedElement){
@@ -86,7 +85,6 @@ TileView.prototype.createButton = function(content, id, value){
 }
 
 TileView.prototype.addImportance = function(tile){
-    console.log(tile.importance)
     let level = '';
     if (tile.completed == true){
         level = 'done'
