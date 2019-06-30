@@ -14,9 +14,14 @@ Once doenloaded to your system, go into the directory you have stored it at and 
 
 4(in a further new terminal window) npm run build
 
+5:if you'd like to seed the table with a few pre made items you can use the command: mongo < server/db/seeds.js
+
+Although there is a glitch with the date in these files. 
+
 Things I would have added/amended:
 
 I would have liked to have made the styling a bit better but I'm still learning my CSS
+I'd have liked to figure out how to keep this tiles and contents restricted as well 
 
 I would have added a time field as well so you could be even more specific.
 
